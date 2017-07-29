@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E14CF4C61F2C333D00D9A07E /* VideoGalleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14CF4C51F2C333D00D9A07E /* VideoGalleyViewController.swift */; };
+		E14CF4C81F2C476900D9A07E /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14CF4C71F2C476900D9A07E /* VideoViewController.swift */; };
 		E1C928B61F2577A7003342A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C928B51F2577A7003342A2 /* AppDelegate.swift */; };
 		E1C928B81F2577A7003342A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C928B71F2577A7003342A2 /* ViewController.swift */; };
 		E1C928BB1F2577A7003342A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C928B91F2577A7003342A2 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E14CF4C51F2C333D00D9A07E /* VideoGalleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoGalleyViewController.swift; sourceTree = "<group>"; };
+		E14CF4C71F2C476900D9A07E /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		E1C928B21F2577A7003342A2 /* MoasArkNatural.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoasArkNatural.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C928B51F2577A7003342A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1C928B71F2577A7003342A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +104,8 @@
 				E1C928B51F2577A7003342A2 /* AppDelegate.swift */,
 				E1C928B71F2577A7003342A2 /* ViewController.swift */,
 				E1C928B91F2577A7003342A2 /* Main.storyboard */,
+				E14CF4C71F2C476900D9A07E /* VideoViewController.swift */,
+				E14CF4C51F2C333D00D9A07E /* VideoGalleyViewController.swift */,
 				E1C928BC1F2577A7003342A2 /* Assets.xcassets */,
 				E1C928BE1F2577A7003342A2 /* LaunchScreen.storyboard */,
 				E1C928C11F2577A8003342A2 /* Info.plist */,
@@ -263,6 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1C928B81F2577A7003342A2 /* ViewController.swift in Sources */,
+				E14CF4C61F2C333D00D9A07E /* VideoGalleyViewController.swift in Sources */,
+				E14CF4C81F2C476900D9A07E /* VideoViewController.swift in Sources */,
 				E1C928B61F2577A7003342A2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +524,7 @@
 				E1C928DC1F2577A8003342A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1C928DD1F2577A8003342A2 /* Build configuration list for PBXNativeTarget "MoasArkNaturalTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +533,7 @@
 				E1C928DF1F2577A8003342A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1C928E01F2577A8003342A2 /* Build configuration list for PBXNativeTarget "MoasArkNaturalUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +542,7 @@
 				E1C928E21F2577A8003342A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
