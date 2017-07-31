@@ -10,7 +10,7 @@ import UIKit
 
 class RSSViewController: UIViewController {
     
-    var blogURL : NSURL!
+    var blogURL : URL!
     
     @IBOutlet weak var webview: UIWebView!
     @IBOutlet weak var toolbar: UIToolbar!
