@@ -12,10 +12,24 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var splitViewController : UISplitViewController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        splitViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "idSplitViewController") as? UISplitViewController
+        splitViewController?.delegate = self
+        
+        splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.allVisible
+        
+        let containerViewController : ContainerViewController = containerViewController()
+        containerViewController.setEmbeddedViewController(splitViewController: splitViewController)
+        
+        window?.rootViewController = containerViewController
+        
+        
         return true
     }
 

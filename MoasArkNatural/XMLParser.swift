@@ -11,7 +11,7 @@ import UIKit
 @objc protocol XMLParserDelegate{
     func parsingWasFinished()
 }
-class XMLParser: NSObject, XMLParser {
+class XMLParser: NSObject, XMLParserDelegate {
     
     var delegate : XMLParserDelegate?
     
@@ -24,7 +24,7 @@ class XMLParser: NSObject, XMLParser {
     var foundCharcters = ""
     
     func startParsingWithContentsOfURL(rssURL: NSURL) {
-        let parser = XMLParser(contentsOfURL: rssURL)
+        let parser = XMLParser(contentsOf: rssURL)
         parser.delegate = self
         parser.parse()
         

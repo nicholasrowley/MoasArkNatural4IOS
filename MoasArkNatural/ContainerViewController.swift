@@ -9,6 +9,8 @@
 import UIKit
 
 class ContainerViewController: UIViewController {
+    
+    var viewController : UISplitViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,5 +33,15 @@ class ContainerViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func setEmbeddedViewController(splitViewController: UISplitViewController!) {
+        if splitViewController != nil {
+            viewController = splitViewController
+            
+            self.addChildViewController(viewController)
+            self.view.addSubview(viewController.view)
+            viewController.didMove(toParentViewController: self)
+        }
+    }
 
 }
