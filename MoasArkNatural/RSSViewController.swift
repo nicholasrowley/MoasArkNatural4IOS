@@ -9,6 +9,9 @@
 import UIKit
 
 class RSSViewController: UIViewController {
+    
+    var blogURL : NSURL!
+    
     @IBOutlet weak var webview: UIWebView!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var pubDateButtonItem: UIBarButtonItem!
@@ -20,6 +23,23 @@ class RSSViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        webview.isHidden = true
+        toolbar.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if blogURL != nil {
+            let request : NSURLRequest = NSURLRequest(URL: blogURL)
+            webview.loadRequest(request)
+            
+            if webview.isHidden {
+                webview.isHidden = false
+                toolbar.isHidden = false
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
