@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xBu-k8-cDC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jjG-Dy-xrc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -106,6 +106,133 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Yp2-qS-SFP">
+            <objects>
+                <viewController storyboardIdentifier="idRSSViewController" id="rfI-Xa-neq" customClass="RSSViewController" customModule="MoasArkNatural" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e6b-D0-4iG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vpa-HH-FNz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jWf-BZ-VhL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Blog was selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ne-9D-NkI">
+                                <rect key="frame" x="105" y="323" width="165" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXG-MU-vTZ">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="XGD-nV-8MM"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Rnh-1O-Ikv"/>
+                                    <barButtonItem title="Publish Date" id="abm-RF-I0u">
+                                        <connections>
+                                            <action selector="showPublishDate:" destination="rfI-Xa-neq" id="YTq-eR-1jx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1r-5D-DyD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jXG-MU-vTZ" firstAttribute="leading" secondItem="jWf-BZ-VhL" secondAttribute="leading" id="2MU-mA-iev"/>
+                            <constraint firstItem="jXG-MU-vTZ" firstAttribute="top" secondItem="Z1r-5D-DyD" secondAttribute="bottom" id="D23-CR-QBM"/>
+                            <constraint firstItem="Z1r-5D-DyD" firstAttribute="leading" secondItem="jWf-BZ-VhL" secondAttribute="leading" id="XYN-iu-4Eu"/>
+                            <constraint firstAttribute="trailing" secondItem="Z1r-5D-DyD" secondAttribute="trailing" id="YIf-jD-hJ2"/>
+                            <constraint firstItem="Vpa-HH-FNz" firstAttribute="top" secondItem="jXG-MU-vTZ" secondAttribute="bottom" id="evh-gN-Iyk"/>
+                            <constraint firstAttribute="trailing" secondItem="jXG-MU-vTZ" secondAttribute="trailing" id="fv4-hA-1y8"/>
+                            <constraint firstItem="jXG-MU-vTZ" firstAttribute="top" secondItem="Z1r-5D-DyD" secondAttribute="bottom" id="ggD-d2-iWo"/>
+                            <constraint firstItem="Z1r-5D-DyD" firstAttribute="top" secondItem="jWf-BZ-VhL" secondAttribute="top" id="kUq-dG-azl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pubDateButtonItem" destination="abm-RF-I0u" id="QE6-aj-eBC"/>
+                        <outlet property="toolbar" destination="jXG-MU-vTZ" id="CDw-iE-i42"/>
+                        <outlet property="webview" destination="Z1r-5D-DyD" id="eQK-yJ-Re6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eNI-8f-EOx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1196" y="2748.5757121439283"/>
+        </scene>
+        <!--Moa's Ark Natural Feed-->
+        <scene sceneID="4Hz-2i-IHw">
+            <objects>
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="XsA-We-IAA" customClass="RSSTableViewController" customModule="MoasArkNatural" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="GYT-u0-9cd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCell" textLabel="Iq2-AW-Gpk" rowHeight="80" style="IBUITableViewCellStyleDefault" id="Srt-6L-uss">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Srt-6L-uss" id="aXC-uk-Acs">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Iq2-AW-Gpk">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XsA-We-IAA" id="AyB-93-mOM"/>
+                            <outlet property="delegate" destination="XsA-We-IAA" id="3wf-iR-bF4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Moa's Ark Natural Feed" id="nPq-dp-xur"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hP2-0l-RBO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2146" y="2095"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sDE-h3-Itw">
+            <objects>
+                <navigationController id="oab-ih-j2h" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="reU-WM-3uK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XsA-We-IAA" kind="relationship" relationship="rootViewController" id="bfz-15-b0a"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Znq-ap-3yf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1196" y="2095"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="fxu-Qz-XX9">
+            <objects>
+                <splitViewController id="jjG-Dy-xrc" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="oab-ih-j2h" kind="relationship" relationship="masterViewController" id="X0c-zc-Jbx"/>
+                        <segue destination="rfI-Xa-neq" kind="relationship" relationship="detailViewController" id="CLl-R9-i5M"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eX5-Xf-ZmV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="242" y="2422"/>
         </scene>
         <!--Video Gallery-->
         <scene sceneID="72L-eI-Lah">

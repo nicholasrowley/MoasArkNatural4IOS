@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E11996061F2CB6C0006FDD86 /* RSSTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11996051F2CB6C0006FDD86 /* RSSTableViewController.swift */; };
+		E119960C1F2CB8BA006FDD86 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119960B1F2CB8BA006FDD86 /* ContainerViewController.swift */; };
+		E11996101F2CB8F7006FDD86 /* RSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119960F1F2CB8F7006FDD86 /* RSSViewController.swift */; };
+		E11996141F2CB98F006FDD86 /* XMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11996131F2CB98F006FDD86 /* XMLParser.swift */; };
 		E14CF4C61F2C333D00D9A07E /* VideoGalleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14CF4C51F2C333D00D9A07E /* VideoGalleyViewController.swift */; };
 		E14CF4C81F2C476900D9A07E /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14CF4C71F2C476900D9A07E /* VideoViewController.swift */; };
 		E1C928B61F2577A7003342A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C928B51F2577A7003342A2 /* AppDelegate.swift */; };
@@ -36,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E11996051F2CB6C0006FDD86 /* RSSTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSTableViewController.swift; sourceTree = "<group>"; };
+		E119960B1F2CB8BA006FDD86 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		E119960F1F2CB8F7006FDD86 /* RSSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSViewController.swift; sourceTree = "<group>"; };
+		E11996131F2CB98F006FDD86 /* XMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLParser.swift; sourceTree = "<group>"; };
 		E14CF4C51F2C333D00D9A07E /* VideoGalleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoGalleyViewController.swift; sourceTree = "<group>"; };
 		E14CF4C71F2C476900D9A07E /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		E1C928B21F2577A7003342A2 /* MoasArkNatural.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoasArkNatural.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,11 +112,15 @@
 				E1C928B51F2577A7003342A2 /* AppDelegate.swift */,
 				E1C928B71F2577A7003342A2 /* ViewController.swift */,
 				E1C928B91F2577A7003342A2 /* Main.storyboard */,
+				E119960B1F2CB8BA006FDD86 /* ContainerViewController.swift */,
+				E11996051F2CB6C0006FDD86 /* RSSTableViewController.swift */,
 				E14CF4C71F2C476900D9A07E /* VideoViewController.swift */,
 				E14CF4C51F2C333D00D9A07E /* VideoGalleyViewController.swift */,
 				E1C928BC1F2577A7003342A2 /* Assets.xcassets */,
 				E1C928BE1F2577A7003342A2 /* LaunchScreen.storyboard */,
 				E1C928C11F2577A8003342A2 /* Info.plist */,
+				E119960F1F2CB8F7006FDD86 /* RSSViewController.swift */,
+				E11996131F2CB98F006FDD86 /* XMLParser.swift */,
 			);
 			path = MoasArkNatural;
 			sourceTree = "<group>";
@@ -268,10 +280,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E11996141F2CB98F006FDD86 /* XMLParser.swift in Sources */,
 				E1C928B81F2577A7003342A2 /* ViewController.swift in Sources */,
+				E11996101F2CB8F7006FDD86 /* RSSViewController.swift in Sources */,
+				E119960C1F2CB8BA006FDD86 /* ContainerViewController.swift in Sources */,
 				E14CF4C61F2C333D00D9A07E /* VideoGalleyViewController.swift in Sources */,
 				E14CF4C81F2C476900D9A07E /* VideoViewController.swift in Sources */,
 				E1C928B61F2577A7003342A2 /* AppDelegate.swift in Sources */,
+				E11996061F2CB6C0006FDD86 /* RSSTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
