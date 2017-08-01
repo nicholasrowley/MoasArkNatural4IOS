@@ -12,6 +12,8 @@ class RSSViewController: UIViewController {
     
     var blogURL : URL!
     
+    var blogsButtonItem : UIBarButtonItem!
+    
     @IBOutlet weak var webview: UIWebView!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var pubDateButtonItem: UIBarButtonItem!
@@ -23,6 +25,8 @@ class RSSViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        blogsButtonItem = UIBarButtonItem(title: "Blogs", style: UIBarButtonItemStyle.plain, target: self, action: "showRSSViewController")
         
         webview.isHidden = true
         toolbar.isHidden = true
@@ -57,5 +61,9 @@ class RSSViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func showRSSViewController() {
+        splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.allVisible
+    }
 
 }
