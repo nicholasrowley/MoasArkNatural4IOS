@@ -8,17 +8,17 @@
 
 import UIKit
 
-class RSSTableViewController: UITableViewController, XMLParserDelegate {
+class RSSTableViewController: UITableViewController, CustomXMLParserDelegate {
     
-    var xmlParser : XMLParser!
+    var custXmlParser : CustomXMLParser!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let url = NSURL(string: "https://moasarknaturalnz.com/feed/") //rss feed link goes here
-        xmlParser = XMLParser()
-        xmlParser.delegate = self
-        xmlParser.startParsingWithContentsOfURL(rssURL: url) //swift 3 may be incompatible
+        let url = URL(string: "https://moasarknaturalnz.com/feed/") //rss feed link goes here
+        custXmlParser = CustomXMLParser()
+        custXmlParser.delegate = self
+        custXmlParser.startParsingWithContentsOfURL(rssURL: url!) //swift 3 may be incompatible
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,14 +33,14 @@ class RSSTableViewController: UITableViewController, XMLParserDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return xmlParser.arrParsedData.count
+        return custXmlParser.arrParsedData.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "idCell", for: indexPath) //check swift 3 change
 
-        let currentDirectory = xmlParser.arrParsedData[indexPath.row] as Dictionary<String, String>
+        let currentDirectory = custXmlParser.arrParsedData[indexPath.row] as Dictionary<String, String>
         
         cell.textLabel?.text = currentDirectory["title"]
 
@@ -93,17 +93,17 @@ class RSSTableViewController: UITableViewController, XMLParserDelegate {
     }
     */
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let dictionary = xmlParser.arrParsedData[indexPath.row] as Dictionary<String, String>
+        let dictionary = custXmlParser.arrParsedData[indexPath.row] as Dictionary<String, String>
         let rssLink = dictionary["link"]
         
-        let rssViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "idRSSViewController") as TutorialViewController
+        let rssViewController = UIStoryboard(name: "Main", bundle:nil).instantiateViewController(withIdentifier: "idRSSViewController") as! RSSViewController //may be incompatible with swift 3
         
-        rssViewController.blogURL = NSURL(string: rssLink!)
+        rssViewController.blogURL = URL(string: rssLink!)
         
         showDetailViewController(rssViewController, sender: self)
         

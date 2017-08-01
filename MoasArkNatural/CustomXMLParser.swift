@@ -8,13 +8,13 @@
 
 import UIKit
 
-@objc protocol XMLParserDelegate{
+@objc protocol CustomXMLParserDelegate{
     func parsingWasFinished()
 }
 
 class CustomXMLParser: NSObject, XMLParserDelegate {
     
-    var delegate : XMLParserDelegate?
+    var delegate : CustomXMLParserDelegate?
     
     var arrParsedData = [Dictionary<String, String>]()
     
@@ -24,10 +24,10 @@ class CustomXMLParser: NSObject, XMLParserDelegate {
     
     var foundCharcters = ""
     
-    func startParsingWithContentsOfURL(rssURL: URL) {
-    let parser = XMLParser(contentsOf: rssURL)
-    parser?.delegate = self
-    parser.parse()
+    func startParsingWithContentsOfURL(rssURL: URL) { //swift 3 requires NSURL as URL
+        let parser = XMLParser(contentsOf: rssURL)
+        parser?.delegate = self
+        parser?.parse()
     
     }
     
@@ -58,14 +58,14 @@ class CustomXMLParser: NSObject, XMLParserDelegate {
     }
     
     func parserDidEndDocument(parser: XMLParser) {
-    delegate?.parsingWasFinished()
+        delegate?.parsingWasFinished()
     }
     
-    func parser(parser: XMLParser, parseErrorOccured parseError: NSError!) {
-    println(parseError.description)
+    func parser(parser: XMLParser, parseErrorOccurred parseError: NSError!) {
+        print(parseError.description)
     }
     
-    func parser(parser: XMLParser, validationErrorOccured validationError: NSError!) {
-    println(validationError.description)
+    func parser(parser: XMLParser, validationErrorOccurred validationError: NSError!) {
+        print(validationError.description)
     }
 }

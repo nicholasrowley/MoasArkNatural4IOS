@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
     
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.allVisible
         
-        let containerViewController : ContainerViewController = containerViewController()
+        let containerViewController : ContainerViewController = ContainerViewController()
         containerViewController.setEmbeddedViewController(splitViewController: splitViewController)
         
         window?.rootViewController = containerViewController

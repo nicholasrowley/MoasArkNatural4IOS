@@ -32,7 +32,7 @@ class RSSViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if blogURL != nil {
-            let request : NSURLRequest = NSURLRequest(URL: blogURL)
+            let request : URLRequest = URLRequest(url: blogURL)
             webview.loadRequest(request)
             
             if webview.isHidden {
