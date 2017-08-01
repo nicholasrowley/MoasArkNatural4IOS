@@ -58,6 +58,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         return true
     }
+    
+    func targetDisplayModeForAction(in svc: UISplitViewController) -> UISplitViewControllerDisplayMode {
+        return UISplitViewControllerDisplayMode.primaryHidden
+    }
+    
+    func splitViewController(_ svc: UISplitViewController, willChangeTo displayMode: UISplitViewControllerDisplayMode) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PrimaryVCDisplayModeChangeNotification"), object: NSNumber.IntegerLiteralType(displayMode.rawValue))
+    }
 
 
 }

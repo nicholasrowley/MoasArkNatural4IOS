@@ -26,10 +26,12 @@ class RSSViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        blogsButtonItem = UIBarButtonItem(title: "Blogs", style: UIBarButtonItemStyle.plain, target: self, action: "showRSSViewController")
+        blogsButtonItem = UIBarButtonItem(title: "Blogs", style: UIBarButtonItemStyle.plain, target: self, action: #selector(RSSViewController.showRSSViewController))
         
         webview.isHidden = true
         toolbar.isHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RSSViewController.handleFirstViewControllerDisplayModeChangeWithNotification), name: NSNotification.Name(rawValue: "PrimaryVCDisplayModeChangeModeNotification"), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,6 +44,10 @@ class RSSViewController: UIViewController {
             if webview.isHidden {
                 webview.isHidden = false
                 toolbar.isHidden = false
+            }
+            
+            if self.traitCollection.verticalSizeClass == UIUserInterfaceSizeClass.compact {
+                toolbar.items?.insert(self.splitViewController!.displayModeButtonItem, at: 0)
             }
         }
     }
@@ -66,4 +72,24 @@ class RSSViewController: UIViewController {
         splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.allVisible
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func handleFirstViewControllerDisplayModeChangeWithNotification(notification: NSNotification){
+        let displayModeObject = notification.object as? NSNumber
+        let nextDisplayMode = displayModeObject?.intValue
+        
+        if toolbar.items?.count == 3 {
+            toolbar.items?.remove(at: 0)
+        }
+        
+        if nextDisplayMode == UISplitViewControllerDisplayMode.primaryHidden.rawValue {
+            toolbar.items?.insert(blogsButtonItem, at: 0)
+        }
+        else {
+            toolbar.items?.insert(splitViewController!.displayModeButtonItem, at: 0)
+        }
+        //TODO continue at handleFirstViewControllerDisplayModeChangeWithNotification
+    }
 }
