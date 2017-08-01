@@ -41,7 +41,21 @@ class ContainerViewController: UIViewController {
             self.addChildViewController(viewController)
             self.view.addSubview(viewController.view)
             viewController.didMove(toParentViewController: self)
+            
+            //viewWillTransition function will handle this instead.
+            //self.setOverrideTraitCollection(UITraitCollection(horizontalSizeClass: UIUserInterfaceSizeClass.regular), forChildViewController: viewController)
         }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if size.width > size.height {
+            self.setOverrideTraitCollection(UITraitCollection(horizontalSizeClass: UIUserInterfaceSizeClass.regular), forChildViewController: viewController)
+        }
+        else {
+            self.setOverrideTraitCollection(nil, forChildViewController: viewController)
+        }
+        
+        super.viewWillTransition(to: size, with: coordinator)
     }
 
 }

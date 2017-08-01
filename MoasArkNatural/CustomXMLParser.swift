@@ -14,7 +14,7 @@ import UIKit
 
 class CustomXMLParser: NSObject, XMLParserDelegate {
     
-    var delegate : CustomXMLParserDelegate?
+    var customDelegate : CustomXMLParserDelegate?
     
     var arrParsedData = [Dictionary<String, String>]()
     
@@ -26,22 +26,22 @@ class CustomXMLParser: NSObject, XMLParserDelegate {
     
     func startParsingWithContentsOfURL(rssURL: URL) { //swift 3 requires NSURL as URL
         let parser = XMLParser(contentsOf: rssURL)
-        parser?.delegate = self
-        parser?.parse()
+        parser!.delegate = self
+        parser!.parse()
     
     }
     
-    func parser(parser: XMLParser, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: [NSObject: AnyObject]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
     currentElement = elementName
     }
     
-    func parser(parser: XMLParser, foundCharcters string: String!) {
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
     if (currentElement == "title" && currentElement != "Appcoda" || currentElement == "link" || currentElement == "pubDate") {
     foundCharcters += string
     }
     }
     
-    func parser(parser: XMLParser, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
     if !foundCharcters.isEmpty {
     if elementName == "link" {
     foundCharcters = (foundCharcters as NSString).substring(from: 3) //check swift 3 correction
@@ -57,15 +57,15 @@ class CustomXMLParser: NSObject, XMLParserDelegate {
     }
     }
     
-    func parserDidEndDocument(parser: XMLParser) {
-        delegate?.parsingWasFinished()
+    func parserDidEndDocument(_ parser: XMLParser) {
+        customDelegate!.parsingWasFinished()
     }
     
-    func parser(parser: XMLParser, parseErrorOccurred parseError: NSError!) {
-        print(parseError.description)
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        print(parseError.localizedDescription)
     }
     
-    func parser(parser: XMLParser, validationErrorOccurred validationError: NSError!) {
-        print(validationError.description)
+    func parser(_ parser: XMLParser, validationErrorOccurred validationError: Error) {
+        print(validationError.localizedDescription)
     }
 }

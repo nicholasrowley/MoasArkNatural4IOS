@@ -16,8 +16,10 @@ class RSSTableViewController: UITableViewController, CustomXMLParserDelegate {
         super.viewDidLoad()
 
         let url = URL(string: "https://moasarknaturalnz.com/feed/") //rss feed link goes here
+        //https://moasarknaturalnz.com/feed/
+        //http://feeds.feedburner.com/appcoda
         custXmlParser = CustomXMLParser()
-        custXmlParser.delegate = self
+        custXmlParser.customDelegate = self
         custXmlParser.startParsingWithContentsOfURL(rssURL: url!) //swift 3 may be incompatible
     }
 
@@ -38,7 +40,7 @@ class RSSTableViewController: UITableViewController, CustomXMLParserDelegate {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "idCell", for: indexPath) //check swift 3 change
+        let cell = tableView.dequeueReusableCell(withIdentifier: "idCell", for: indexPath) as UITableViewCell //check swift 3 change
 
         let currentDirectory = custXmlParser.arrParsedData[indexPath.row] as Dictionary<String, String>
         
