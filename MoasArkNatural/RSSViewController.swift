@@ -31,7 +31,7 @@ class RSSViewController: UIViewController {
         webview.isHidden = true
         toolbar.isHidden = true
         
-        NotificationCenter.default.addObserver(self, selector: #selector(RSSViewController.handleFirstViewControllerDisplayModeChangeWithNotification), name: NSNotification.Name(rawValue: "PrimaryVCDisplayModeChangeModeNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: Selector("handleFirstViewControllerDisplayModeChangeWithNotification:"), name: NSNotification.Name(rawValue: "PrimaryVCDisplayModeChangeModeNotification"), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,6 +90,27 @@ class RSSViewController: UIViewController {
         else {
             toolbar.items?.insert(splitViewController!.displayModeButtonItem, at: 0)
         }
-        //TODO continue at handleFirstViewControllerDisplayModeChangeWithNotification
+        
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if previousTraitCollection?.verticalSizeClass == UIUserInterfaceSizeClass.compact {
+            let firstItem = toolbar.items?[0]
+            if firstItem?.title == "Blogs" {
+                toolbar.items?.remove(at: 0)
+            }
+        }
+        else if previousTraitCollection?.verticalSizeClass == UIUserInterfaceSizeClass.regular {
+            if toolbar.items?.count == 3 {
+                toolbar.items?.remove(at: 0)
+            }
+            
+            if splitViewController?.displayMode == UISplitViewControllerDisplayMode.primaryHidden {
+                toolbar.items?.insert(blogsButtonItem, at: 0)
+            }
+            else {
+                toolbar.items?.insert(self.splitViewController!.displayModeButtonItem, at: 0)
+            }
+        }
     }
 }
