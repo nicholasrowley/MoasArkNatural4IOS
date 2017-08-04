@@ -55,9 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+    //below method may override the method of the same name.
+    /*func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         return true
-    }
+    }*/
     
     func targetDisplayModeForAction(in svc: UISplitViewController) -> UISplitViewControllerDisplayMode {
         return UISplitViewControllerDisplayMode.primaryHidden

@@ -31,7 +31,7 @@ class RSSViewController: UIViewController {
         webview.isHidden = true
         toolbar.isHidden = true
         
-        NotificationCenter.default.addObserver(self, selector: Selector("handleFirstViewControllerDisplayModeChangeWithNotification:"), name: NSNotification.Name(rawValue: "PrimaryVCDisplayModeChangeModeNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RSSViewController.handleFirstViewControllerDisplayModeChangeWithNotification), name: NSNotification.Name(rawValue: "PrimaryVCDisplayModeChangeModeNotification"), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
